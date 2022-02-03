@@ -2,8 +2,8 @@ public abstract class Weapon {
 
   private int damage;
 
-  public int dealdamage(Enemy enemy){
-  return enemy.getHealth() - damage;
+  public void dealdamage(Enemy enemy){
+  enemy.setHealth(enemy.getHealth() - damage);
   }
 
 }

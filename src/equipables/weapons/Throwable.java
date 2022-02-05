@@ -2,7 +2,8 @@ package equipables.weapons;
 
 public class Throwable extends Weapon{
 
-  public Throwable(int damage){
+  public Throwable(String name, int damage){
+    this.setName(name);
     this.setDamage(damage);
   }
 

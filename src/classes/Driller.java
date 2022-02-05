@@ -1,6 +1,5 @@
 package classes;
 
-import equipables.Equipment;
 import equipables.weapons.PrimaryWeapon;
 import equipables.weapons.SecondaryWeapon;
 import equipables.weapons.Throwable;
@@ -9,9 +8,13 @@ import java.util.Scanner;
 public class Driller extends Dwarf{
 
   public void chooseLoadout(){
-    int primaryWeapon = 0;
-    int secondaryWeapon = 0;
-    int throwable = 0;
+    String[] commentary = {"Hey hey.. You have to enter the valid numbers..",
+        "I knew you had a little body, but i guess ur brain has dwarfism too",
+        "Last straw sergant Driller.. next mistake and im sending you into battle with a a weapon of my choosing",
+        "Good luck killing spiders with this one.."};
+
+    int dummyCounter = 0;
+    int choice = 0;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -21,26 +24,30 @@ public class Driller extends Dwarf{
         1: CRSPR flamethrower - 15 damage
         2: Cryo cannon - 10 damage
         3: Corrosive sludge pump - 25 damage""");
-
     if (scanner.hasNextInt()) {
-      primaryWeapon = scanner.nextInt();
+      choice = scanner.nextInt();
     }
-    if (primaryWeapon < 4 && primaryWeapon > 0){
-    } else {
+    if (choice > 3 || choice < 1){
       do {
-        System.out.println("Wrong input, choose a number from the list.");
+        if (dummyCounter == 3){
+          System.out.println(commentary[dummyCounter]);
+          this.setPrimaryWeapon(new PrimaryWeapon("A CHICKEN",1));
+          break;
+        }
+        System.out.println(commentary[dummyCounter]);
+        dummyCounter++;
         if (!scanner.hasNextInt()){
           scanner.nextLine();
           scanner.next();
         }else {
-          primaryWeapon = scanner.nextInt();
+          choice = scanner.nextInt();
         }
       }
-      while (primaryWeapon > 3 || primaryWeapon < 1);
+      while (choice > 3 || choice < 1);
     }
     scanner.nextLine();
 
-    switch (primaryWeapon){
+    switch (choice){
       case 1: this.setPrimaryWeapon(new PrimaryWeapon("CRSPR flamethrower",15));
         System.out.println("CRSPR flamethrower has been chosen as primary weapon");
       break;
@@ -56,26 +63,32 @@ public class Driller extends Dwarf{
     System.out.println("""
         1: Subata120 - 15 damage
         2: Experimental plasma charger - 35 damage""");
-
+    dummyCounter = 0;
+    choice = 0;
     if (scanner.hasNextInt()) {
-      secondaryWeapon = scanner.nextInt();
+      choice = scanner.nextInt();
     }
-    if (secondaryWeapon < 3 && secondaryWeapon > 0){
-    } else {
+    if (choice > 2 || choice < 1){
       do {
-        System.out.println("Wrong input, choose a number from the list.");
+        if (dummyCounter == 3){
+          System.out.println(commentary[dummyCounter]);
+          this.setSecondaryWeapon(new SecondaryWeapon("A GODDAMN STUPID CHICKEN",1));
+          break;
+        }
+        System.out.println(commentary[dummyCounter]);
+        dummyCounter++;
         if (!scanner.hasNextInt()){
           scanner.nextLine();
           scanner.next();
         }else {
-          secondaryWeapon = scanner.nextInt();
+          choice = scanner.nextInt();
         }
       }
-      while (secondaryWeapon > 2 || secondaryWeapon < 1);
+      while (choice > 2 || choice < 1);
     }
     scanner.nextLine();
 
-    switch (secondaryWeapon){
+    switch (choice){
       case 1: this.setSecondaryWeapon(new SecondaryWeapon("Subata120",15));
         System.out.println("Subata120 has been chosen as secondary weapon");
         break;
@@ -89,26 +102,32 @@ public class Driller extends Dwarf{
         1: Impact axe - 70 damage
         2: High explosive grenade - 80 damage
         3: Neurotoxin grenade - 30 damage/second over 5 seconds""");
-
+    dummyCounter = 0;
+    choice = 0;
     if (scanner.hasNextInt()) {
-      throwable = scanner.nextInt();
+      choice = scanner.nextInt();
     }
-    if (throwable < 4 && throwable > 0){
-    } else {
+    if (choice > 3 || choice < 1){
       do {
-        System.out.println("Wrong input, choose a number from the list.");
+        if (dummyCounter == 3){
+          System.out.println(commentary[dummyCounter]);
+          this.setThrowable(new Throwable("A GODDAMN STUPID THROWABLE CHICKEN",1));
+          break;
+        }
+        System.out.println(commentary[dummyCounter]);
+        dummyCounter++;
         if (!scanner.hasNextInt()){
           scanner.nextLine();
           scanner.next();
         }else {
-          throwable = scanner.nextInt();
+          choice = scanner.nextInt();
         }
       }
-      while (throwable > 3 || throwable < 1);
+      while (choice > 3 || choice < 1);
     }
     scanner.nextLine();
 
-    switch (throwable){
+    switch (choice){
       case 1: this.setThrowable(new Throwable("Impact axe",70));
         System.out.println("Impact axe has been chosen as throwable");
       break;
@@ -124,11 +143,9 @@ public class Driller extends Dwarf{
         + this.getSecondaryWeapon().getName() + "\n" + "Throwable: " + this.getThrowable().getName());
   }
 
-
   public static void main(String[] args) {
-    Driller f = new Driller();
-    f.chooseLoadout();
+    Driller d = new Driller();
+    d.chooseLoadout();
   }
-
 
 }

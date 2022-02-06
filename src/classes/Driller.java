@@ -3,17 +3,19 @@ package classes;
 import equipables.weapons.PrimaryWeapon;
 import equipables.weapons.SecondaryWeapon;
 import equipables.weapons.Throwable;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Driller extends Dwarf{
 
   public void chooseLoadout(){
-    String[] commentary = {"Hey hey.. You have to enter the valid numbers..",
+    String[] commentary = {"", "Hey hey.. You have to enter the valid numbers..",
         "I knew you had a little body, but i guess ur brain has dwarfism too",
         "Last straw sergant Driller.. next mistake and im sending you into battle with a a weapon of my choosing",
         "Good luck killing spiders with this one.."};
 
-    int dummyCounter = 0;
+    int dummyCounter = -1;
     int choice = 0;
 
     Scanner scanner = new Scanner(System.in);
@@ -24,28 +26,22 @@ public class Driller extends Dwarf{
         1: CRSPR flamethrower - 15 damage
         2: Cryo cannon - 10 damage
         3: Corrosive sludge pump - 25 damage""");
-    if (scanner.hasNextInt()) {
-      choice = scanner.nextInt();
-    }
-    if (choice > 3 || choice < 1){
-      do {
-        if (dummyCounter == 3){
+
+    do {
+      try {
+        dummyCounter++;
+        if (dummyCounter == 4){
           System.out.println(commentary[dummyCounter]);
           this.setPrimaryWeapon(new PrimaryWeapon("A CHICKEN",1));
           break;
         }
         System.out.println(commentary[dummyCounter]);
-        dummyCounter++;
-        if (!scanner.hasNextInt()){
-          scanner.nextLine();
-          scanner.next();
-        }else {
-          choice = scanner.nextInt();
-        }
+        choice = scanner.nextInt();
+      } catch (InputMismatchException ignored) {
+
       }
-      while (choice > 3 || choice < 1);
-    }
-    scanner.nextLine();
+      scanner.nextLine();
+    } while (choice < 1 || choice > 3);
 
     switch (choice){
       case 1: this.setPrimaryWeapon(new PrimaryWeapon("CRSPR flamethrower",15));
@@ -63,30 +59,24 @@ public class Driller extends Dwarf{
     System.out.println("""
         1: Subata120 - 15 damage
         2: Experimental plasma charger - 35 damage""");
-    dummyCounter = 0;
+    dummyCounter = -1;
     choice = 0;
-    if (scanner.hasNextInt()) {
-      choice = scanner.nextInt();
-    }
-    if (choice > 2 || choice < 1){
-      do {
-        if (dummyCounter == 3){
+
+    do {
+      try {
+        dummyCounter++;
+        if (dummyCounter == 4){
           System.out.println(commentary[dummyCounter]);
-          this.setSecondaryWeapon(new SecondaryWeapon("A GODDAMN STUPID CHICKEN",1));
+          this.setSecondaryWeapon(new SecondaryWeapon("A GODDAMN CHICKEN",1));
           break;
         }
         System.out.println(commentary[dummyCounter]);
-        dummyCounter++;
-        if (!scanner.hasNextInt()){
-          scanner.nextLine();
-          scanner.next();
-        }else {
-          choice = scanner.nextInt();
-        }
+        choice = scanner.nextInt();
+      } catch (InputMismatchException ignored) {
+
       }
-      while (choice > 2 || choice < 1);
-    }
-    scanner.nextLine();
+      scanner.nextLine();
+    } while (choice < 1 || choice > 2);
 
     switch (choice){
       case 1: this.setSecondaryWeapon(new SecondaryWeapon("Subata120",15));
@@ -102,30 +92,24 @@ public class Driller extends Dwarf{
         1: Impact axe - 70 damage
         2: High explosive grenade - 80 damage
         3: Neurotoxin grenade - 30 damage/second over 5 seconds""");
-    dummyCounter = 0;
+    dummyCounter = -1;
     choice = 0;
-    if (scanner.hasNextInt()) {
-      choice = scanner.nextInt();
-    }
-    if (choice > 3 || choice < 1){
-      do {
-        if (dummyCounter == 3){
+
+    do {
+      try {
+        dummyCounter++;
+        if (dummyCounter == 4){
           System.out.println(commentary[dummyCounter]);
-          this.setThrowable(new Throwable("A GODDAMN STUPID THROWABLE CHICKEN",1));
+          this.setThrowable(new Throwable("A THROWABLE FREAKING CHICKEN",1));
           break;
         }
         System.out.println(commentary[dummyCounter]);
-        dummyCounter++;
-        if (!scanner.hasNextInt()){
-          scanner.nextLine();
-          scanner.next();
-        }else {
-          choice = scanner.nextInt();
-        }
+        choice = scanner.nextInt();
+      } catch (InputMismatchException ignored) {
+
       }
-      while (choice > 3 || choice < 1);
-    }
-    scanner.nextLine();
+      scanner.nextLine();
+    } while (choice < 1 || choice > 3);
 
     switch (choice){
       case 1: this.setThrowable(new Throwable("Impact axe",70));
@@ -141,6 +125,11 @@ public class Driller extends Dwarf{
     System.out.println("\nYou have chosen the the following setup for rocking hard: ");
     System.out.println("Primary weapon: " + this.getPrimaryWeapon().getName() + "\n" + "Secondary weapon: "
         + this.getSecondaryWeapon().getName() + "\n" + "Throwable: " + this.getThrowable().getName());
+  }
+
+  public static void main(String[] args) {
+    Driller g = new Driller();
+    g.chooseLoadout();
   }
 
 }

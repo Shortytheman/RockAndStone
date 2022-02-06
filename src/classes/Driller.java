@@ -143,9 +143,4 @@ public class Driller extends Dwarf{
         + this.getSecondaryWeapon().getName() + "\n" + "Throwable: " + this.getThrowable().getName());
   }
 
-  public static void main(String[] args) {
-    Driller d = new Driller();
-    d.chooseLoadout();
-  }
-
 }

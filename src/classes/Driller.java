@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Driller extends Dwarf{
 
   public void chooseLoadout(){
-    String[] commentary = {"", "Hey hey.. You have to enter the valid numbers..",
+    String[] commentary = {"Enter a number: ", "Hey hey.. You have to enter the valid numbers..",
         "I knew you had a little body, but i guess ur brain has dwarfism too",
         "Last straw sergant Driller.. next mistake and im sending you into battle with a a weapon of my choosing",
         "Good luck killing spiders with this one.."};
@@ -33,6 +33,7 @@ public class Driller extends Dwarf{
         if (dummyCounter == 4){
           System.out.println(commentary[dummyCounter]);
           this.setPrimaryWeapon(new PrimaryWeapon("A CHICKEN",1));
+          System.out.println("\n" + this.getPrimaryWeapon().getName() + " Has been chosen s your primary weapon");
           break;
         }
         System.out.println(commentary[dummyCounter]);
@@ -68,6 +69,7 @@ public class Driller extends Dwarf{
         if (dummyCounter == 4){
           System.out.println(commentary[dummyCounter]);
           this.setSecondaryWeapon(new SecondaryWeapon("A GODDAMN CHICKEN",1));
+          System.out.println("\n" + this.getSecondaryWeapon().getName() + " Has been chosen s your secondary weapon");
           break;
         }
         System.out.println(commentary[dummyCounter]);
@@ -101,6 +103,7 @@ public class Driller extends Dwarf{
         if (dummyCounter == 4){
           System.out.println(commentary[dummyCounter]);
           this.setThrowable(new Throwable("A THROWABLE FREAKING CHICKEN",1));
+          System.out.println("\n" + this.getThrowable().getName() + " Has been chosen s your throwable");
           break;
         }
         System.out.println(commentary[dummyCounter]);

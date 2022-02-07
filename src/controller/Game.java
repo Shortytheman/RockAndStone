@@ -35,7 +35,9 @@ public class Game {
           System.out.println("Opening the dwarf changing station, please wait..");
           break;
         case 2:
+          System.out.println("JOHANNES SKRIV WEAPONBENCH 7/2, eller jeg laver lurt på dit lår");
         case 3:
+          System.out.println("FREDERINCO SKRIV MINERAL EXCHANGE STATION 7/2 ELLER JEG KOMMER PÅ DIN FOD");
         case 4:
         case 5:
         case 6:

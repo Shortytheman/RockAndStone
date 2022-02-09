@@ -15,7 +15,7 @@ public class Game {
           1: Change your dwarf
           2: Change your loadout
           3: Enter the weapon workbench
-          4: Enter the cosmetics workbench
+          4: Enter the Divestation
           5: blablabbla
           6: måske maks 6 menuvalg!?! hvad synes i boiz? hvad skal der mere være
           9: Exit the program\n""");
@@ -39,6 +39,7 @@ public class Game {
         case 3:
           System.out.println("FREDERINCO SKRIV MINERAL EXCHANGE STATION 7/2 ELLER JEG KOMMER PÅ DIN FOD");
         case 4:
+          System.out.println("Opening dive station, hold on miner");
         case 5:
         case 6:
         case 9: flag = false;

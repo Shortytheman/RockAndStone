@@ -4,6 +4,7 @@ import equipables.Equipment;
 import equipables.weapons.PrimaryWeapon;
 import equipables.weapons.SecondaryWeapon;
 import equipables.weapons.Throwable;
+import workstations.Mission;
 
 public abstract class Dwarf {
 
@@ -12,6 +13,15 @@ public abstract class Dwarf {
   private SecondaryWeapon secondaryWeapon;
   private Throwable throwable;
   private Equipment equipment;
+  private Mission mission;
+
+  public void setMission(Mission mission) {
+    this.mission = mission;
+  }
+
+  public Mission getMission() {
+    return mission;
+  }
 
   public PrimaryWeapon getPrimaryWeapon() {
     return primaryWeapon;

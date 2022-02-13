@@ -13,7 +13,6 @@ public class Mission {
   this.secondaryObjective = secondaryObjective;
   this.mutators = mutators;
   }
-
   public void setMutators(String mutators) {
     this.mutators = mutators;
   }
@@ -33,5 +32,4 @@ public class Mission {
   public String getMutators() {
     return mutators;
   }
-
 }

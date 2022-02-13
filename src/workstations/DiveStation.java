@@ -18,7 +18,7 @@ public class DiveStation {
   private final String[] mutations = {"Golden bugs", "Cave leeches", "Regenerating bugs", "Parasites",
       "Double XP"};
 
-  public void showMissions(){
+  public Mission chooseMission(){
     Random rand = new Random();
     Scanner scanner = new Scanner(System.in);
     System.out.println("Todays missions are: ");
@@ -30,8 +30,9 @@ public class DiveStation {
       int sidequest = rand.nextInt(5);
       System.out.println((i + 1) + ": " + mainObjective[randomMission] + "\nMission description: " + mainObjectiveExplanation[randomMission]);
       System.out.println("Extra objective: " + secondaryObjective[sidequest]);
-      missions.add(new Mission(mainObjective[randomMission],mainObjectiveExplanation[randomMission],secondaryObjective[sidequest],""));
-      if (hasStats > 8){
+      missions.add(new Mission(mainObjective[randomMission],mainObjectiveExplanation[randomMission],
+          secondaryObjective[sidequest],""));
+      if (hasStats > 7){
         int statsIs = rand.nextInt(5);
         System.out.println("Mission has rolled with extra stats: " + mutations[statsIs]);
         missions.get(i).setMutators(mutations[statsIs]);
@@ -50,14 +51,7 @@ public class DiveStation {
       scanner.nextLine();
     } while (choice < 1 || choice > 5);
 
-
-  }
-
-  public static void main(String[] args) {
-    DiveStation g = new DiveStation();
-    g.showMissions();
+    return missions.get(choice - 1);
   }
 
 }
-
-
